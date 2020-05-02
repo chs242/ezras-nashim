@@ -1,9 +1,11 @@
 <template>
     <Layout>
-       <img src="../assets/images/contact-tab/world-map.png" alt="" class="hidden md:block mx-auto">
+        <div class="lg:min-h-screen">
+       <img src="../assets/images/contact-tab/world-map.png" alt="" class="hidden md:block mx-auto md-custom-margin">
        <div id="contact-page" class="w-full py-2 lg:flex md:absolute">
            <ContactPhone></ContactPhone>
            <ContactForm></ContactForm>
+       </div>
        </div>
     </Layout>
 </template>
@@ -12,6 +14,15 @@
 import ContactPhone from "~/components/ContactPhone"
 import ContactForm from "~/components/ContactForm"
 export default {
+    metaInfo: {
+    title: "Contact",
+    meta: [
+        {name: 'description', content: 'For the past five decades, Jewish women have been given only two sub-par options in emergency care: be treated by men in their immediate community, resulting in a very uncomfortable situation that threatens their Tznius or turn outside the community for assistance. Inspired by our ancestral midwives, Shifrah and Pooah, it is time for Bnos Yisroel to reclaim our role as healers and midwives for our mothers, daughters, sisters and fellow woman. B’Zchus Nashim Tzidkaniyos, we invite you to become our partners.'}
+      ],
+      link: [
+        {rel: 'canonical', href: 'https://ezrasnashim.org/contact/'}
+      ]
+  },
     components:{
         ContactPhone,
         ContactForm
@@ -36,5 +47,9 @@ export default {
     #contact-page{
         top: 5%;
     }
+    .md-custom-margin{
+        margin-bottom: 25rem;
+    }
 } 
+
 </style>

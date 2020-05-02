@@ -5,13 +5,16 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Netlify CMS Gridsome starter template',
-  siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Netlify CMS for content.',
+  siteName: 'Ezras Nashim',
+  siteUrl: 'https://www.ezrasnashim.org',
+  siteDescription: 'Bridging the gap for women in Emergency Medical Care',
+  siteUrl: 'http://ezrasnashim.netlify.com',
 
   templates: {
-    Post: '/:title',
+    Post: '/posts/:title',
     Tag: '/tag/:id'
   },
+
 
   plugins: [
     {
@@ -25,6 +28,31 @@ module.exports = {
           tags: {
             typeName: 'Tag',
             create: true
+          }
+        }
+      }
+    },
+    {
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'Testimonial',
+        path: 'content/testimonials/*.md',
+      }
+    },
+    {
+      use: 'gridsome-plugin-tailwindcss',
+    },
+    //generating a sitemap for SEO purposes
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000, // default
+        exclude: ['/exclude-me'],
+        config: {
+          '/*': {
+            changefreq: 'weekly',
+            priority: 0.5
           }
         }
       }
@@ -42,22 +70,4 @@ module.exports = {
       ]
     }
   }
-}
-
-module.exports = {
-  plugins: [
-    {
-      use: 'gridsome-plugin-tailwindcss',
-      /* These are the default options. You don't need to set any options to get going.
-      options: {
-        tailwindConfig: './some/file/js',
-        purgeConfig: {},
-        presetEnvConfig: {},
-        shouldPurge: true,
-        shouldImport: true,
-        shouldTimeTravel: true
-      }
-      */
-    }
-  ]
 }

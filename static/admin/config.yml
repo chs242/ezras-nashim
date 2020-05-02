@@ -20,4 +20,5 @@ collections:
         field: {label: Name, name: name, widget: string, default: "tag"}
       - {label: "Cover Image", name: "cover_image", widget: "image", required: false}
       - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Manuel PDF", name: "manuel_pdf", widget: "file", default: "/uploads/general-manual.pdf", required: false}
